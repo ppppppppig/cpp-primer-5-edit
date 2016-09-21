@@ -70,6 +70,7 @@ inline Shared_ptr<T> & Shared_ptr<T>::operator=(const Shared_ptr &m)
 	if (refnum&&!--*refnum) {
 		del ? del->destory(): delete ptr;
 		delete refnum;
+		delete del;
 	}
 	ptr = m.ptr;
 	refnum = m.refnum;
@@ -82,6 +83,7 @@ inline Shared_ptr<T> & Shared_ptr<T>::operator=(Shared_ptr &&m)
 	if (refnum && !--(*refnum)) {
 		del ? del->destory() : delete ptr;
 		delete refnum;
+		delete del;
 	}
 	ptr = m.ptr;
 	refnum = m.refnum;
@@ -97,6 +99,7 @@ inline void Shared_ptr<T>::reset()
 {
 	del ? del->destory() : delete ptr;
 	delete refnum;
+	delete del;
 }
 
 template<typename T>
@@ -106,6 +109,7 @@ inline Shared_ptr<T>::~Shared_ptr()
 		cout << "class Shared_ptr is deleting..." << endl;
 		del ? del->destory() : delete ptr;
 		delete refnum;
+		delete del;
 	}
 }
 
