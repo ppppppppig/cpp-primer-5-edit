@@ -11,7 +11,7 @@ void print(std::ostream &os, const T &t, Args ...args) {
 	os << t << ", ";
 	print(os, args...);
 }
-template <typename T>
+template <typename... Args>
 void print(std::ostream &os, const T &t) {
 	os << t;
 }
