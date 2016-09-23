@@ -6,7 +6,7 @@ using std::cout;
 using std::endl;
 template <typename T>
 void print(std::ostream &, const T &);
-template <typename T,typename ...Args>
+template <typename T, typename ...Args>
 void print(std::ostream &os, const T &t, Args ...args) {
 	os << t << ", ";
 	print(os, args...);
@@ -24,4 +24,4 @@ int main() {
 	print(cout, i, d, s);
 	cout << "gaogaogao" << endl;
 	return 0;
-} 
+}
